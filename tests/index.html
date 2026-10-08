@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <title>Testes do motor</title>
+  <style>body{font:16px system-ui;padding:1rem}li.ok{color:#2a7d00}li.erro{color:#b00020;font-weight:700}</style>
+</head>
+<body>
+  <h1>Testes do motor</h1>
+  <p>Abra esta página por um servidor local (ex.: <code>python3 -m http.server</code> na raiz do projeto, depois <code>/tests/</code>).</p>
+  <ul id="lista"></ul>
+  <script type="module">
+    import * as M from "../js/motor.js";
+    const banco = await (await fetch("../questoes/geografia-regiao-sul.json")).json();
+    const qs = banco.questoes;
+    const lista = document.getElementById("lista");
+    let falhas = 0, total = 0;
+    const igual = (a, b, msg) => { if (JSON.stringify(a) !== JSON.stringify(b)) throw new Error(`${msg || ""} esperado ${JSON.stringify(b)}, veio ${JSON.stringify(a)}`); };
+    const ok = (c, msg) => { if (!c) throw new Error(msg || "condição falsa"); };
+    function teste(nome, fn) {
+      total++;
+      const li = document.createElement("li");
+      try { fn(); li.className = "ok"; li.textContent = "✓ " + nome; }
+      catch (e) { falhas++; li.className = "erro"; li.textContent = `✗ ${nome}: ${e.message}`; }
+      lista.append(li);
+    }
+
+    teste("banco real é válido, com 50 questões", () => { igual(qs.length, 50); igual(M.validar(banco), []); });
+
+    teste("validar acusa problemas", () => {
+      const ruim = { questoes: [
+        { id: 1, topico: "x", enunciado: "e", explicacao: "x", tipo: "mc", correta: "a", erradas: ["a", "b"] },
+        { id: 1, topico: "x", enunciado: "e", explicacao: "x", tipo: "vf", resposta: "sim" },
+      ] };
+      const p = M.validar(ruim).join("|");
+      ok(p.includes("repetidas") && p.includes("repetido") && p.includes("true ou false"), p);
+    });
+
+    teste("lacuna: maiúsculas, espaços, pontuação, acento e sinônimos", () => {
+      const q = { tipo: "lacuna", resposta: "araucárias", aceitas: ["araucária"] };
+      ok(M.corrigir(q, " Araucárias. ").correta);
+      const r = M.corrigir(q, "araucarias");
+      ok(r.correta && r.aviso === "acento");
+      ok(!M.corrigir(q, "pinheiros").correta);
+      ok(!M.corrigir(q, "").correta);
+    });
+
+    teste("lacuna: números equivalentes", () => {
+      const q = { tipo: "lacuna", resposta: "14,7", aceitas: ["14,7%"] };
+      ok(M.corrigir(q, "14.7").correta && M.corrigir(q, "14,7%").correta);
+      ok(!M.corrigir(q, "147").correta);
+    });
+
+    teste("múltipla escolha e V/F", () => {
+      const mc = { tipo: "mc", correta: "Rio Uruguai", erradas: ["a", "b"] };
+      ok(M.corrigir(mc, "Rio Uruguai").correta && !M.corrigir(mc, "a").correta);
+      const vf = { tipo: "vf", resposta: false };
+      ok(M.corrigir(vf, "Falso").correta && !M.corrigir(vf, "Verdadeiro").correta);
+    });
+
+    teste("todas as questões do banco são corrigidas como certas com o próprio gabarito", () => {
+      for (const q of qs) {
+        const resp = q.tipo === "mc" ? q.correta : q.tipo === "vf" ? (q.resposta ? "Verdadeiro" : "Falso") : q.resposta;
+        ok(M.corrigir(q, resp).correta, `questão ${q.id}`);
+        if (q.tipo === "mc") for (const e of q.erradas) ok(!M.corrigir(q, e).correta, `questão ${q.id}: errada aceita`);
+        if (q.tipo === "lacuna") for (const a of q.aceitas || []) ok(M.corrigir(q, a).correta, `questão ${q.id}: aceita "${a}"`);
+      }
+    });
+
+    teste("sorteio: nunca vistas primeiro, depois as erradas por último", () => {
+      let hist = {};
+      qs.slice(0, 30).forEach((q, i) => { hist[q.id] = { vezes: 1, ultima_correta: true, ultima_em: `2026-10-0${1 + (i % 5)}T10:00:00` }; });
+      qs.slice(0, 5).forEach((q) => { hist[q.id].ultima_correta = false; });
+      let ids = M.sortearRodada(qs, hist, M.criarRng(1));
+      igual(ids.length, 20); igual(new Set(ids).size, 20);
+      igual([...ids].sort((a, b) => a - b), qs.slice(30).map((q) => q.id));
+      hist = {};
+      qs.slice(0, 45).forEach((q) => { hist[q.id] = { vezes: 1, ultima_correta: true, ultima_em: "2026-10-01T10:00:00" }; });
+      qs.slice(0, 10).forEach((q) => { hist[q.id].ultima_correta = false; });
+      const set = new Set(M.sortearRodada(qs, hist, M.criarRng(2)));
+      ok(qs.slice(45).every((q) => set.has(q.id)), "as 5 não vistas devem entrar");
+      ok(qs.slice(0, 10).every((q) => set.has(q.id)), "as 10 erradas devem entrar");
+    });
+
+    teste("embaralha alternativas e botões V/F (a certa passa por todas as posições)", () => {
+      const q1 = qs.find((q) => q.id === 1);
+      const posicoes = new Set();
+      const primeiroVf = new Set();
+      for (let s = 0; s < 60; s++) {
+        const ordem = M.sortearOrdem(qs, M.criarRng(s));
+        igual([...ordem[1]].sort(), [q1.correta, ...q1.erradas].sort());
+        posicoes.add(ordem[1].indexOf(q1.correta));
+        primeiroVf.add(ordem[2][0]);
+      }
+      igual([...posicoes].sort(), [0, 1, 2, 3]);
+      igual([...primeiroVf].sort(), ["Falso", "Verdadeiro"]);
+    });
+
+    teste("a versão para a aluna não traz gabarito nem explicação", () => {
+      const q = qs[0];
+      const v = M.questaoParaAluna(q, M.sortearOrdem([q], M.criarRng(1)));
+      ok(!("correta" in v) && !("erradas" in v) && !("explicacao" in v) && !("resposta" in v));
+      igual([...v.opcoes].sort(), [q.correta, ...q.erradas].sort());
+    });
+
+    teste("XP, nível, estágio e sequência de dias", () => {
+      igual(M.xpDaRodada(20, 10), 250); igual(M.xpDaRodada(18, 9), 210); igual(M.xpDaRodada(15, 7.5), 150);
+      igual([M.nivelPorXp(0), M.nivelPorXp(100), M.nivelPorXp(299)], [1, 2, 2]);
+      igual(M.estagioPorNivel(1).chave, "ovo"); igual(M.estagioPorNivel(7).chave, "mestre");
+      const hoje = new Date(2026, 9, 8);
+      igual(M.sequenciaDeDias(["2026-10-08T09:00:00", "2026-10-07T20:00:00", "2026-10-06T08:00:00"], hoje), 3);
+      igual(M.sequenciaDeDias(["2026-10-07T20:00:00"], hoje), 1);
+      igual(M.sequenciaDeDias(["2026-10-05T20:00:00"], hoje), 0);
+    });
+
+    teste("conquistas", () => {
+      const base = { rodadas: 0, trofeus: 0, rodada_perfeita: false, sequencia: 0, vistas: 0, total_banco: 50, veloz: false };
+      igual([...M.conquistasMerecidas(base)], []);
+      const c = M.conquistasMerecidas({ ...base, rodadas: 1, trofeus: 5, rodada_perfeita: true, sequencia: 7, vistas: 50, veloz: true });
+      igual(c.size, 8);
+    });
+
+    document.title = falhas ? `FALHOU ${falhas}/${total}` : `OK ${total}/${total}`;
+    const resumo = document.createElement("p");
+    resumo.id = "resumo"; resumo.textContent = document.title;
+    document.body.prepend(resumo);
+  </script>
+</body>
+</html>

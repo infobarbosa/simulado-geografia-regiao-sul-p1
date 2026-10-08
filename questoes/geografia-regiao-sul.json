@@ -1,0 +1,638 @@
+{
+ "titulo": "Geografia — Revisão P1: Região Sul",
+ "disciplina": "Geografia",
+ "fonte": "resumo de estudo para a P1 de Geografia (Região Sul)",
+ "questoes": [
+  {
+   "id": 1,
+   "topico": "Fronteiras",
+   "pagina": 1,
+   "tipo": "mc",
+   "enunciado": "Qual alternativa lista corretamente o que faz fronteira com a Região Sul?",
+   "correta": "SP, MS, Argentina, Paraguai, Uruguai e Oceano Atlântico",
+   "erradas": [
+    "MG, MS, Argentina, Bolívia, Uruguai e Oceano Atlântico",
+    "SP, RJ, Chile, Paraguai, Uruguai e Oceano Atlântico",
+    "MS, GO, Argentina, Paraguai, Peru e Oceano Pacífico"
+   ],
+   "explicacao": "O Sul faz divisa com SP e MS e com Argentina, Paraguai, Uruguai e o Oceano Atlântico."
+  },
+  {
+   "id": 2,
+   "topico": "Fronteiras",
+   "pagina": 1,
+   "tipo": "vf",
+   "enunciado": "A Região Sul faz fronteira com o Chile.",
+   "resposta": false,
+   "explicacao": "Os países vizinhos do Sul são Argentina, Paraguai e Uruguai. O Chile não faz fronteira com a região."
+  },
+  {
+   "id": 3,
+   "topico": "Fronteiras",
+   "pagina": 1,
+   "tipo": "lacuna",
+   "enunciado": "O Sul faz fronteira com três países: Argentina, Paraguai e ______.",
+   "resposta": "Uruguai",
+   "aceitas": [
+    "uruguai"
+   ],
+   "explicacao": "Argentina, Paraguai e Uruguai são os três países vizinhos do Sul."
+  },
+  {
+   "id": 4,
+   "topico": "Fronteiras",
+   "pagina": 1,
+   "tipo": "mc",
+   "enunciado": "Quais estados de outras regiões fazem divisa com a Região Sul?",
+   "correta": "SP e MS",
+   "erradas": [
+    "MG e GO",
+    "RJ e ES",
+    "MT e MG"
+   ],
+   "explicacao": "São Paulo (Sudeste) e Mato Grosso do Sul (Centro-Oeste) fazem divisa com o Sul."
+  },
+  {
+   "id": 5,
+   "topico": "Campos",
+   "pagina": 1,
+   "tipo": "mc",
+   "enunciado": "Quais são as características do relevo e do solo dos Campos do Sul?",
+   "correta": "Planalto, coxilhas e solo arenoso",
+   "erradas": [
+    "Serras, planícies alagadas e terra-roxa",
+    "Depressões, chapadas e solo argiloso",
+    "Planalto, serras e terra-roxa"
+   ],
+   "explicacao": "Nos Campos há planalto, coxilhas e solo arenoso. Serras e terra-roxa são da Mata de Pinhais."
+  },
+  {
+   "id": 6,
+   "topico": "Campos",
+   "pagina": 1,
+   "tipo": "vf",
+   "enunciado": "Nos Campos, a vegetação é densa e fechada, como uma floresta.",
+   "resposta": false,
+   "explicacao": "Nos Campos há pouca vegetação, bem espalhada."
+  },
+  {
+   "id": 7,
+   "topico": "Campos",
+   "pagina": 1,
+   "tipo": "lacuna",
+   "enunciado": "O clima dos Campos do Sul é o ______.",
+   "resposta": "subtropical",
+   "aceitas": [
+    "subtropical"
+   ],
+   "explicacao": "O clima é subtropical."
+  },
+  {
+   "id": 8,
+   "topico": "Campos",
+   "pagina": 1,
+   "tipo": "mc",
+   "enunciado": "Qual paisagem do Sul tem pouca vegetação, bem espalhada, e solo arenoso?",
+   "correta": "Campos",
+   "erradas": [
+    "Mata de Pinhais",
+    "Manguezal",
+    "Caatinga"
+   ],
+   "explicacao": "Essa descrição é dos Campos."
+  },
+  {
+   "id": 9,
+   "topico": "Campos",
+   "pagina": 1,
+   "tipo": "vf",
+   "enunciado": "Os Campos e a Mata de Pinhais têm o mesmo tipo de clima: o subtropical.",
+   "resposta": true,
+   "explicacao": "As duas paisagens ficam no clima subtropical."
+  },
+  {
+   "id": 10,
+   "topico": "Mata de Pinhais",
+   "pagina": 1,
+   "tipo": "mc",
+   "enunciado": "Qual árvore é característica da Mata de Pinhais?",
+   "correta": "Araucária",
+   "erradas": [
+    "Babaçu",
+    "Mangue-vermelho",
+    "Carnaúba"
+   ],
+   "explicacao": "A Mata de Pinhais é uma floresta com araucárias."
+  },
+  {
+   "id": 11,
+   "topico": "Mata de Pinhais",
+   "pagina": 1,
+   "tipo": "mc",
+   "enunciado": "A Mata de Pinhais registra presença de neve. Quais fatores explicam isso?",
+   "correta": "Latitude, altitude e maritimidade",
+   "erradas": [
+    "Apenas o calor do litoral e a baixa altitude",
+    "Vegetação, solo e hidrografia",
+    "Pecuária, imigração e industrialização"
+   ],
+   "explicacao": "A neve aparece devido à latitude, à altitude e à maritimidade."
+  },
+  {
+   "id": 12,
+   "topico": "Mata de Pinhais",
+   "pagina": 1,
+   "tipo": "vf",
+   "enunciado": "A Mata de Pinhais fica em relevo de planalto e serras, com solo de terra-roxa.",
+   "resposta": true,
+   "explicacao": "Na Mata de Pinhais há planalto, serras e terra-roxa."
+  },
+  {
+   "id": 13,
+   "topico": "Mata de Pinhais",
+   "pagina": 1,
+   "tipo": "lacuna",
+   "enunciado": "A Mata de Pinhais é uma floresta com ______.",
+   "resposta": "araucárias",
+   "aceitas": [
+    "araucarias",
+    "araucária",
+    "araucaria",
+    "araucárias"
+   ],
+   "explicacao": "É uma floresta com araucárias."
+  },
+  {
+   "id": 14,
+   "topico": "Mata de Pinhais",
+   "pagina": 1,
+   "tipo": "mc",
+   "enunciado": "O que diferencia a Mata de Pinhais dos Campos?",
+   "correta": "A Mata de Pinhais é floresta de araucárias em serras, com terra-roxa; os Campos têm pouca vegetação e solo arenoso",
+   "erradas": [
+    "Os Campos ficam no clima subtropical e a Mata de Pinhais não",
+    "A Mata de Pinhais tem pouca vegetação espalhada e os Campos têm florestas",
+    "Só a Mata de Pinhais fica na Região Sul"
+   ],
+   "explicacao": "Os dois têm clima subtropical e ficam no Sul. A diferença está no relevo, no solo e na vegetação."
+  },
+  {
+   "id": 15,
+   "topico": "Hidrografia",
+   "pagina": 1,
+   "tipo": "mc",
+   "enunciado": "Qual destes rios é um dos mais importantes da Região Sul?",
+   "correta": "Rio Uruguai",
+   "erradas": [
+    "Rio Amazonas",
+    "Rio São Francisco",
+    "Rio Tocantins"
+   ],
+   "explicacao": "O Rio Uruguai é um dos rios mais importantes do Sul."
+  },
+  {
+   "id": 16,
+   "topico": "Hidrografia",
+   "pagina": 1,
+   "tipo": "mc",
+   "enunciado": "Os rios do Sul pertencem a qual bacia hidrográfica?",
+   "correta": "Bacia do Rio da Prata",
+   "erradas": [
+    "Bacia Amazônica",
+    "Bacia do São Francisco",
+    "Bacia do Tocantins-Araguaia"
+   ],
+   "explicacao": "Os rios do Sul fazem parte da Bacia do Rio da Prata."
+  },
+  {
+   "id": 17,
+   "topico": "Hidrografia",
+   "pagina": 1,
+   "tipo": "vf",
+   "enunciado": "O Rio Iguaçu e o Rio Pelotas têm alto potencial hidrelétrico.",
+   "resposta": true,
+   "explicacao": "Os dois são citados como rios com alto potencial hidrelétrico."
+  },
+  {
+   "id": 18,
+   "topico": "Hidrografia",
+   "pagina": 1,
+   "tipo": "lacuna",
+   "enunciado": "Junto com o Rio Pelotas, o Rio ______ tem alto potencial hidrelétrico.",
+   "resposta": "Iguaçu",
+   "aceitas": [
+    "iguaçu",
+    "iguacu"
+   ],
+   "explicacao": "O Rio Iguaçu e o Rio Pelotas têm alto potencial hidrelétrico."
+  },
+  {
+   "id": 19,
+   "topico": "Hidrografia",
+   "pagina": 1,
+   "tipo": "mc",
+   "enunciado": "Quais rios citados no resumo fazem parte da Bacia do Rio da Prata?",
+   "correta": "Paraná, Paraguai e Iguaçu",
+   "erradas": [
+    "Amazonas, Negro e Solimões",
+    "São Francisco, Doce e Paraíba",
+    "Tocantins, Araguaia e Xingu"
+   ],
+   "explicacao": "Paraná, Paraguai e Iguaçu estão na Bacia do Prata."
+  },
+  {
+   "id": 20,
+   "topico": "Arenização",
+   "pagina": 1,
+   "tipo": "mc",
+   "enunciado": "O que é arenização?",
+   "correta": "Formação de bancos de areia móveis devido à remoção da cobertura vegetal em solos frágeis e arenosos",
+   "erradas": [
+    "Formação de neve nas serras do Sul durante o inverno",
+    "Transformação de areia em terra-roxa por adubação",
+    "Inundação dos campos por causa do transbordamento dos rios"
+   ],
+   "explicacao": "A arenização forma bancos de areia móveis depois que a cobertura vegetal é removida de solos frágeis e arenosos."
+  },
+  {
+   "id": 21,
+   "topico": "Arenização",
+   "pagina": 1,
+   "tipo": "mc",
+   "enunciado": "Quais atividades estão entre as causas da arenização?",
+   "correta": "Pecuária extensiva e uso de maquinário pesado",
+   "erradas": [
+    "Turismo e indústria de vestuário",
+    "Mineração de carvão e energia hidrelétrica",
+    "Cultivo de uva e fabricação de vinho"
+   ],
+   "explicacao": "A pecuária extensiva e o uso de maquinário pesado estão entre as causas."
+  },
+  {
+   "id": 22,
+   "topico": "Arenização",
+   "pagina": 1,
+   "tipo": "vf",
+   "enunciado": "A arenização acontece quando o excesso de chuva cobre o solo de água.",
+   "resposta": false,
+   "explicacao": "Ela acontece pela remoção da cobertura vegetal em solos naturalmente frágeis e arenosos."
+  },
+  {
+   "id": 23,
+   "topico": "Arenização",
+   "pagina": 1,
+   "tipo": "lacuna",
+   "enunciado": "A arenização ocorre pela remoção da cobertura ______ em solos frágeis e arenosos.",
+   "resposta": "vegetal",
+   "aceitas": [
+    "vegetal"
+   ],
+   "explicacao": "Sem a cobertura vegetal, o solo arenoso fica exposto e forma bancos de areia."
+  },
+  {
+   "id": 24,
+   "topico": "Ocupação",
+   "pagina": 2,
+   "tipo": "mc",
+   "enunciado": "No século XVIII, qual atividade do Sul alimentava e abastecia a região das minas?",
+   "correta": "Pecuária de gado bovino e muar",
+   "erradas": [
+    "Cultivo de uva e fabricação de vinho",
+    "Indústria automobilística",
+    "Fabricação de calçados de couro"
+   ],
+   "explicacao": "No século XVIII, a pecuária de gado bovino e muar abastecia a região das minas."
+  },
+  {
+   "id": 25,
+   "topico": "Ocupação",
+   "pagina": 2,
+   "tipo": "lacuna",
+   "enunciado": "O transporte de cargas e animais até as áreas de mineração e café chama-se ______.",
+   "resposta": "tropeirismo",
+   "aceitas": [
+    "tropeirismo"
+   ],
+   "explicacao": "Esse é o tropeirismo."
+  },
+  {
+   "id": 26,
+   "topico": "Ocupação",
+   "pagina": 2,
+   "tipo": "vf",
+   "enunciado": "No século XVIII, a ocupação do Sul se baseava principalmente em grandes indústrias.",
+   "resposta": false,
+   "explicacao": "Naquele século predominavam a pecuária e o tropeirismo."
+  },
+  {
+   "id": 27,
+   "topico": "Ocupação",
+   "pagina": 2,
+   "tipo": "mc",
+   "enunciado": "Por que o Sul atraiu imigrantes europeus no início do século XIX?",
+   "correta": "Clima semelhante ao europeu, solo fértil e experiência dos imigrantes",
+   "erradas": [
+    "Ouro em abundância nas serras e clima tropical úmido",
+    "Grandes indústrias que precisavam de operários",
+    "Falta de qualquer tipo de agricultura na região"
+   ],
+   "explicacao": "O clima era semelhante ao europeu, o solo era fértil e os imigrantes tinham experiência."
+  },
+  {
+   "id": 28,
+   "topico": "Ocupação",
+   "pagina": 2,
+   "tipo": "mc",
+   "enunciado": "Que tipo de mão de obra caracterizou a imigração no início do século XIX no Sul?",
+   "correta": "Mão de obra livre",
+   "erradas": [
+    "Mão de obra escravizada",
+    "Mão de obra indígena",
+    "Mão de obra militar"
+   ],
+   "explicacao": "A imigração trouxe mão de obra livre."
+  },
+  {
+   "id": 29,
+   "topico": "Ocupação",
+   "pagina": 2,
+   "tipo": "vf",
+   "enunciado": "Os minifúndios dos imigrantes eram policultores e voltados à subsistência.",
+   "resposta": true,
+   "explicacao": "Eram pequenas propriedades que cultivavam vários produtos, para o sustento da família."
+  },
+  {
+   "id": 30,
+   "topico": "Ocupação",
+   "pagina": 2,
+   "tipo": "mc",
+   "enunciado": "Qual atividade ficou marcada entre os imigrantes alemães?",
+   "correta": "Fabricação de calçados e objetos de couro",
+   "erradas": [
+    "Cultivo de uva e fabricação de vinho",
+    "Tropeirismo",
+    "Mineração de carvão"
+   ],
+   "explicacao": "Os alemães fabricavam calçados e objetos de couro."
+  },
+  {
+   "id": 31,
+   "topico": "Ocupação",
+   "pagina": 2,
+   "tipo": "mc",
+   "enunciado": "Os imigrantes italianos, que chegaram no fim do século XIX, destacaram-se em quê?",
+   "correta": "Cultivo de uva e fabricação de vinho",
+   "erradas": [
+    "Fabricação de calçados e objetos de couro",
+    "Criação de gado muar para as minas",
+    "Fabricação de carros e motos"
+   ],
+   "explicacao": "Os italianos cultivavam uva e fabricavam vinho."
+  },
+  {
+   "id": 32,
+   "topico": "Ocupação",
+   "pagina": 2,
+   "tipo": "lacuna",
+   "enunciado": "Os italianos cultivavam ______ para fabricar vinho.",
+   "resposta": "uva",
+   "aceitas": [
+    "uva",
+    "uvas"
+   ],
+   "explicacao": "Cultivo de uva e fabricação de vinho."
+  },
+  {
+   "id": 33,
+   "topico": "Ocupação",
+   "pagina": 2,
+   "tipo": "vf",
+   "enunciado": "Os alemães se destacaram na fabricação de vinho, e os italianos, na de calçados.",
+   "resposta": false,
+   "explicacao": "É o contrário: alemães, calçados e couro; italianos, uva e vinho."
+  },
+  {
+   "id": 34,
+   "topico": "Economia",
+   "pagina": 2,
+   "tipo": "mc",
+   "enunciado": "Qual alternativa lista produtos agrícolas da economia do Sul?",
+   "correta": "Trigo, arroz, frutas, feijão, cevada e fumo",
+   "erradas": [
+    "Açaí, guaraná, cupuaçu e castanha-do-pará",
+    "Babaçu, carnaúba, cacau e sisal",
+    "Cacau, dendê, mamona e sisal"
+   ],
+   "explicacao": "No Sul se cultivam trigo, arroz, frutas, feijão, cevada e fumo."
+  },
+  {
+   "id": 35,
+   "topico": "Economia",
+   "pagina": 2,
+   "tipo": "mc",
+   "enunciado": "Quais criações fazem parte da pecuária do Sul?",
+   "correta": "Gado bovino, suíno e ovino, e avicultura",
+   "erradas": [
+    "Apenas gado bovino",
+    "Gado muar e caprino, apenas",
+    "Peixes e crustáceos, apenas"
+   ],
+   "explicacao": "Há gado bovino, suíno e ovino, e avicultura."
+  },
+  {
+   "id": 36,
+   "topico": "Economia",
+   "pagina": 2,
+   "tipo": "lacuna",
+   "enunciado": "A criação de aves é chamada de ______.",
+   "resposta": "avicultura",
+   "aceitas": [
+    "avicultura"
+   ],
+   "explicacao": "Avicultura é a criação de aves."
+  },
+  {
+   "id": 37,
+   "topico": "Economia",
+   "pagina": 2,
+   "tipo": "vf",
+   "enunciado": "A agropecuária do Sul é apenas comercial, sem a presença de agricultura familiar.",
+   "resposta": false,
+   "explicacao": "A agropecuária do Sul é familiar e comercial."
+  },
+  {
+   "id": 38,
+   "topico": "Economia",
+   "pagina": 2,
+   "tipo": "mc",
+   "enunciado": "Quais são os recursos energéticos do Sul citados no resumo?",
+   "correta": "Energia hidrelétrica e carvão mineral",
+   "erradas": [
+    "Petróleo e gás natural",
+    "Energia nuclear e biomassa",
+    "Energia eólica e solar"
+   ],
+   "explicacao": "Hidrelétrica e carvão mineral."
+  },
+  {
+   "id": 39,
+   "topico": "Economia",
+   "pagina": 2,
+   "tipo": "mc",
+   "enunciado": "Qual destes é um ponto turístico da Região Sul?",
+   "correta": "Cataratas do Iguaçu",
+   "erradas": [
+    "Pelourinho",
+    "Lençóis Maranhenses",
+    "Chapada Diamantina"
+   ],
+   "explicacao": "As Cataratas do Iguaçu são um dos destinos turísticos do Sul."
+  },
+  {
+   "id": 40,
+   "topico": "Economia",
+   "pagina": 3,
+   "tipo": "mc",
+   "enunciado": "Qual alternativa lista apenas atrações turísticas do Sul?",
+   "correta": "Ruínas de São Miguel das Missões, Beto Carrero, Jardim Botânico e Cataratas do Iguaçu",
+   "erradas": [
+    "Pelourinho, Lençóis Maranhenses, Pantanal e Chapada Diamantina",
+    "Ruínas de São Miguel das Missões, Pelourinho, Pantanal e Cataratas do Iguaçu",
+    "Beto Carrero, Lençóis Maranhenses, Jardim Botânico e Chapada Diamantina"
+   ],
+   "explicacao": "Nas outras opções há atrações de outras regiões misturadas."
+  },
+  {
+   "id": 41,
+   "topico": "Indústrias",
+   "pagina": 3,
+   "tipo": "mc",
+   "enunciado": "Quais tipos de indústria existem no Sul?",
+   "correta": "Mineradoras, alimentícias, automobilísticas, de vestuário e de tecnologia",
+   "erradas": [
+    "Apenas petroleiras e de extração de borracha",
+    "Apenas siderúrgicas",
+    "Nenhuma: o Sul não tem indústrias"
+   ],
+   "explicacao": "O Sul tem indústrias mineradoras, alimentícias, automobilísticas, de vestuário e de tecnologia."
+  },
+  {
+   "id": 42,
+   "topico": "Indústrias",
+   "pagina": 3,
+   "tipo": "vf",
+   "enunciado": "O Sul é a região mais industrializada do país.",
+   "resposta": false,
+   "explicacao": "O Sul é a 2ª região mais industrializada do país."
+  },
+  {
+   "id": 43,
+   "topico": "Indústrias",
+   "pagina": 3,
+   "tipo": "lacuna",
+   "enunciado": "O Sul é a ____ região mais industrializada do país. (escreva o número ou por extenso)",
+   "resposta": "2ª",
+   "aceitas": [
+    "2",
+    "2ª",
+    "2a",
+    "segunda",
+    "2º",
+    "2o"
+   ],
+   "explicacao": "É a 2ª região mais industrializada do país."
+  },
+  {
+   "id": 44,
+   "topico": "População",
+   "pagina": 3,
+   "tipo": "mc",
+   "enunciado": "Em número de habitantes, o Sul é a:",
+   "correta": "3ª região mais populosa",
+   "erradas": [
+    "1ª região mais populosa",
+    "2ª região mais populosa",
+    "5ª região mais populosa"
+   ],
+   "explicacao": "O Sul é a 3ª região mais populosa."
+  },
+  {
+   "id": 45,
+   "topico": "População",
+   "pagina": 3,
+   "tipo": "mc",
+   "enunciado": "Em relação ao povoamento, o Sul é a:",
+   "correta": "2ª região mais povoada",
+   "erradas": [
+    "1ª região mais povoada",
+    "3ª região mais povoada",
+    "5ª região mais povoada"
+   ],
+   "explicacao": "O Sul é a 2ª região mais povoada."
+  },
+  {
+   "id": 46,
+   "topico": "População",
+   "pagina": 3,
+   "tipo": "mc",
+   "enunciado": "Dizer que o Sul é a 2ª região mais povoada significa que ele tem:",
+   "correta": "A segunda maior densidade demográfica (habitantes por km²)",
+   "erradas": [
+    "O segundo maior número total de habitantes",
+    "O segundo maior território do país",
+    "A segunda maior produção industrial"
+   ],
+   "explicacao": "Povoada se refere à densidade demográfica. Já populosa se refere ao número total de habitantes."
+  },
+  {
+   "id": 47,
+   "topico": "População",
+   "pagina": 3,
+   "tipo": "lacuna",
+   "enunciado": "O Sul ocupa ___% do território brasileiro.",
+   "resposta": "7",
+   "aceitas": [
+    "7",
+    "7%"
+   ],
+   "explicacao": "A Região Sul ocupa 7% do território brasileiro."
+  },
+  {
+   "id": 48,
+   "topico": "População",
+   "pagina": 3,
+   "tipo": "lacuna",
+   "enunciado": "O Sul apresenta ___% da população brasileira.",
+   "resposta": "14,7",
+   "aceitas": [
+    "14,7",
+    "14.7",
+    "14,7%"
+   ],
+   "explicacao": "A região tem 14,7% da população brasileira."
+  },
+  {
+   "id": 49,
+   "topico": "População",
+   "pagina": 3,
+   "tipo": "vf",
+   "enunciado": "O Sul é a região que apresenta a melhor qualidade de vida do país.",
+   "resposta": true,
+   "explicacao": "Segundo o resumo, o Sul apresenta a melhor qualidade de vida do país."
+  },
+  {
+   "id": 50,
+   "topico": "População",
+   "pagina": 3,
+   "tipo": "mc",
+   "enunciado": "O Sul ocupa 7% do território e tem 14,7% da população. O que isso mostra?",
+   "correta": "A parte da população é maior que a parte do território, ou seja, a região é bem povoada",
+   "erradas": [
+    "A região tem pouquíssimos habitantes para o seu tamanho",
+    "A região é a maior do país em território",
+    "A população do Sul é menor que a do Nordeste e a do Norte"
+   ],
+   "explicacao": "Como tem mais habitantes do que a fatia do território sugere, a densidade é alta. Por isso é a 2ª mais povoada."
+  }
+ ]
+}
