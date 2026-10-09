@@ -120,6 +120,16 @@
       igual(c.size, 8);
     });
 
+    import * as T from "../js/termos.js";
+    teste("termos de uso: versão, 9 cláusulas essenciais e resumo, sem marcadores soltos", () => {
+      ok(Number.isInteger(T.VERSAO_TERMOS) && T.VERSAO_TERMOS >= 1);
+      igual(T.ARTIGOS.length, 9);
+      const titulos = T.ARTIGOS.map((a) => a[0]);
+      for (const t of ["Sem garantias", "Pode haver enganos", "Pode mudar ou acabar", "Seus dados", "Responsabilidade"]) ok(titulos.includes(t), t);
+      ok(T.ARTIGOS.every(([t, x]) => t && x.length > 20 && !x.includes("__")), "texto com marcador solto");
+      igual(T.resumoEl().children.length, 4);
+    });
+
     document.title = falhas ? `FALHOU ${falhas}/${total}` : `OK ${total}/${total}`;
     const resumo = document.createElement("p");
     resumo.id = "resumo"; resumo.textContent = document.title;

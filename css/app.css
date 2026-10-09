@@ -32,6 +32,16 @@ button { font: inherit; color: inherit; }
 .grande { font-size: 1.2rem; }
 .erro-texto { color: var(--laranja-escuro); min-height: 1.4em; }
 
+/* ---------- termos de uso */
+.termos-aceite { text-align: left; width: 100%; max-width: 420px; margin: 0 0 .8rem; }
+.termos-resumo { margin: .2rem 0 .8rem; padding-left: 1.2rem; font-size: .92rem; line-height: 1.4; }
+.termos-detalhes { margin: 0 0 .8rem; font-size: .9rem; }
+.termos-detalhes summary { cursor: pointer; font-weight: 700; padding: .5rem 0; color: var(--azul-escuro); }
+.termos-texto h2 { font-size: 1rem; margin: 1rem 0 .2rem; }
+.termos-texto p { margin: 0 0 .5rem; line-height: 1.4; }
+.aceite-linha { display: flex; gap: .7rem; align-items: flex-start; padding: .75rem; border: 2px solid var(--borda); border-radius: var(--raio); cursor: pointer; line-height: 1.35; font-size: .95rem; }
+.aceite-linha input { flex: none; width: 1.5rem; height: 1.5rem; margin: .1rem 0 0; accent-color: var(--verde); }
+
 /* ---------- botões (estilo "3D": sombra de baixo) */
 .botao {
   display: flex; align-items: center; justify-content: center; gap: .4rem; width: 100%;

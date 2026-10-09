@@ -1,11 +1,11 @@
 // Service worker: guarda o app no aparelho para abrir sem internet.
 // Estratégia "usa o que está guardado e atualiza em segundo plano": a versão nova aparece na abertura seguinte.
 // Mudou algum arquivo? Aumente VERSAO para limpar o que ficou guardado.
-const VERSAO = "v1";
+const VERSAO = "v2";
 const CACHE = `simulado-geografia-p1-${VERSAO}`;
 const ARQUIVOS = [
   "./", "index.html", "manifest.webmanifest", "css/app.css",
-  "js/app.js", "js/api.js", "js/motor.js", "js/mascote.js", "js/quiz.js", "js/util.js",
+  "js/app.js", "js/api.js", "js/motor.js", "js/mascote.js", "js/quiz.js", "js/util.js", "js/termos.js",
   "questoes/geografia-regiao-sul.json",
   "img/icone.svg", "img/icone-192.png", "img/icone-512.png", "img/apple-touch-icon.png",
 ];

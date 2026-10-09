@@ -47,7 +47,7 @@ with sync_playwright() as p:
         pg.goto(URL)
         # boas-vindas: pergunta o nome
         pg.wait_for_selector("input")
-        pg.fill("input", "Maria"); pg.click("text=Começar")
+        pg.fill("input[type=text]", "Maria"); pg.check(".aceite-linha input"); pg.click("text=Começar")
         pg.wait_for_selector(".heroi")
         assert "Maria" in pg.inner_text(".balao"), "o Quero deve chamar pelo nome"
         if SHOTS: pg.screenshot(path=str(SHOTS / f"{nome}-inicio.png"))

@@ -12,7 +12,7 @@ This repository is **public**. Do not add the child's name or the notebook photo
 
 ```bash
 python3 -m http.server 8000                       # run locally: http://localhost:8000
-# unit tests of the engine run in the browser: http://localhost:8000/tests/  (tab title "OK 11/11")
+# unit tests of the engine run in the browser: http://localhost:8000/tests/  (tab title "OK 12/12")
 python3 tests/e2e.py http://localhost:8000/ [screenshots-dir]   # needs `pip install playwright` and Chrome (CHROME env var)
 ```
 
@@ -24,6 +24,7 @@ python3 tests/e2e.py http://localhost:8000/ [screenshots-dir]   # needs `pip ins
 - **`js/api.js`**: the "server inside the browser". It keeps all progress in `localStorage` (key `sg_p1_estado_v1`, with an in-memory fallback if storage is blocked) and answers the same `/api/...` calls the screens make (`/api/estado`, `/api/rodadas`, `/api/rodadas/<id>`, `.../respostas`, `.../concluir`, `/api/trofeus`). `util.js` re-exports its `api`. It also has the name, export, import and reset helpers used by the Ajustes screen. Round ids come from a counter in the state, never reused.
 - **`js/app.js`** (router and screens: boas-vindas, início, resultado, troféus, conquistas, ajustes; hash routes `#/`, `#/rodada/<id>`, `#/revisao/<id>`, `#/resultado/<id>`, `#/trofeus`, `#/conquistas`, `#/ajustes`), **`js/quiz.js`** (the round player with clock and feedback panel), **`js/mascote.js`** (Quero and the trophy as SVG), **`js/util.js`** (`el()` DOM helper: a numeric `0` as the first argument is a child, not props; sounds; confetti; dialogs).
 - **`questoes/geografia-regiao-sul.json`**: the 50-question bank (27 `mc`, 12 `vf`, 11 `lacuna`), the single source of truth. Question ids are stable keys for saved progress: never reuse an id for a different question.
+- **`js/termos.js`**: versioned terms-of-use text (`VERSAO_TERMOS`) and the first-visit consent block (summary + collapsed full text + checkbox). Consent is stored apart from the progress (`termosAceitos`/`aceitarTermos` in `api.js`, key `sg_p1_termos_v1`), so restoring a backup never accepts for the user and resetting progress never revokes it. New users must tick the box on the welcome screen; existing users, or anyone whose saved version is older, see an "Antes de continuar" screen once (guard at the top of the router). Changed the text? Bump `VERSAO_TERMOS` (and `DATA_TERMOS`), `VERSAO` in `sw.js`. No analytics or third-party requests exist, and the text says so: keep it true. `tests/e2e_termos.py` covers the flow.
 - **`sw.js`**: service worker with stale-while-revalidate over a fixed file list. **Bump `VERSAO` and keep the `ARQUIVOS` list in sync whenever files change or are added**, or devices keep serving the cached version. Registration happens in `app.js` only in a secure context.
 
 ## Constraints

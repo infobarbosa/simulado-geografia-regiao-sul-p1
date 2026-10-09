@@ -1,11 +1,13 @@
 // Roteador (hash) e telas: boas-vindas, início, resultado, troféus, conquistas e ajustes.
 
 import { api, el, formatarNota, formatarTempo, formatarData, avisar, som, confete, prefs, perguntar } from "./util.js";
-import { nomeSalvo, salvarNome, exportarProgresso, importarProgresso, recomecar } from "./api.js";
+import { nomeSalvo, salvarNome, exportarProgresso, importarProgresso, recomecar, termosAceitos, aceitarTermos } from "./api.js";
+import { VERSAO_TERMOS, blocoAceite, resumoEl, termosCompletosEl } from "./termos.js";
 import { mascote, trofeuSvg } from "./mascote.js";
 import { telaQuiz, sessao } from "./quiz.js";
 
 let NOME = ""; // perguntado na primeira visita e guardado no aparelho
+const termosEmDia = () => (termosAceitos()?.versao ?? 0) >= VERSAO_TERMOS;
 const raiz = document.getElementById("app");
 let limpezaAtual = () => {};
 let estagioAtual = "adulto"; // estágio do Quero, atualizado a cada /api/estado
@@ -24,13 +26,15 @@ async function rotear() {
   window.scrollTo(0, 0);
   try {
     NOME = await nomeSalvo();
-    if (!NOME && rota !== "ajustes") return telaBoasVindas();
+    if (!NOME && rota !== "ajustes" && rota !== "termos") return telaBoasVindas();
+    if (NOME && !termosEmDia() && rota !== "termos") return telaAceite();
     if (rota === "rodada") limpezaAtual = (await telaQuiz(raiz, Number(arg), { estagio: await estagio() })) || (() => {});
     else if (rota === "revisao") limpezaAtual = (await telaQuiz(raiz, Number(arg), { revisao: true, estagio: await estagio() })) || (() => {});
     else if (rota === "resultado") await telaResultado(Number(arg));
     else if (rota === "trofeus") await telaTrofeus();
     else if (rota === "conquistas") await telaConquistas();
     else if (rota === "ajustes") await telaAjustes();
+    else if (rota === "termos") telaTermos();
     else await telaInicio();
   } catch (e) {
     raiz.replaceChildren(el("div.tela-centro",
@@ -235,21 +239,49 @@ async function telaConquistas() {
 // ---------------------------------------------------------------- boas-vindas e ajustes
 
 function telaBoasVindas() {
+  const precisaAceite = !termosEmDia();
+  let aceitou = !precisaAceite;
+  const atualizar = () => { botao.disabled = !(campo.value.trim() && aceitou); };
   const campo = el("input.campo", {
     type: "text", placeholder: "Seu nome", maxLength: 30, autocomplete: "given-name", autocapitalize: "words",
     enterKeyHint: "go", "aria-label": "Seu nome",
-    oninput: () => { botao.disabled = !campo.value.trim(); },
+    oninput: atualizar,
     onkeydown: (ev) => { if (ev.key === "Enter" && campo.value.trim()) botao.click(); },
   });
   const botao = el("button.botao.grande", {
     disabled: true,
-    onclick: async () => { await salvarNome(campo.value); location.hash = "#/"; rotear(); },
+    onclick: async () => {
+      if (precisaAceite) aceitarTermos(VERSAO_TERMOS);
+      await salvarNome(campo.value); location.hash = "#/"; rotear();
+    },
   }, "Começar");
+  const aceite = precisaAceite ? blocoAceite((ok) => { aceitou = ok; atualizar(); }) : null;
   raiz.replaceChildren(el("div.tela-centro",
     el("div.heroi-mascote", mascote("ovo", "feliz")),
     el("h1", "Oi! Eu sou o Quero"),
     el("p", "Vou te ajudar a estudar a Região Sul. Como você se chama?"),
-    campo, botao,
+    campo, aceite?.el, botao,
+  ));
+}
+
+// Quem já usava o app antes dos termos (ou quando o texto muda) vê o aceite uma vez, antes de seguir.
+function telaAceite() {
+  const botao = el("button.botao.grande", { disabled: true, onclick: () => { aceitarTermos(VERSAO_TERMOS); rotear(); } }, "Continuar");
+  const aceite = blocoAceite((ok) => { botao.disabled = !ok; });
+  raiz.replaceChildren(el("div.tela-centro",
+    el("div.heroi-mascote", mascote("ovo", "incentivo")),
+    el("h1", "Antes de continuar"),
+    el("p", "Peça a um adulto para ler com você:"),
+    aceite.el, botao,
+  ));
+}
+
+function telaTermos() {
+  const aceito = termosAceitos();
+  raiz.replaceChildren(el("div.pais",
+    el("header.pais-topo", el("a.link", { href: "#/ajustes" }, "← Voltar"), el("h1", "Termos de uso")),
+    resumoEl(), termosCompletosEl(),
+    aceito ? el("p.mini", `Aceito neste aparelho em ${new Date(aceito.aceito_em).toLocaleDateString("pt-BR")} (versão ${aceito.versao}).`) : null,
   ));
 }
 
@@ -289,6 +321,9 @@ async function telaAjustes() {
     }, "Salvar progresso em arquivo"),
     el("button.botao.secundario", { onclick: () => arquivo.click() }, "Carregar progresso de um arquivo"),
     arquivo,
+    el("h2", "Termos de uso"),
+    el("p.mini", "Sem garantias, pode haver enganos e o app pode ser encerrado."),
+    el("a.botao.secundario", { href: "#/termos" }, "Ler os termos de uso"),
     el("h2", "Recomeçar"),
     el("button.botao.perigo", {
       onclick: async () => {

@@ -35,6 +35,10 @@ Fica guardado **só no seu aparelho** (no navegador). Não há conta nem servido
 
 Em **Ajustes** (rodapé da tela inicial) dá para **salvar o progresso num arquivo**, **carregar** esse arquivo em outro aparelho e **recomeçar do zero**.
 
+## Termos de uso
+
+No primeiro acesso o app mostra um resumo e pede o aceite de um adulto (a caixinha libera o botão); o texto completo está em Ajustes → "Termos de uso". Resumo: app gratuito e informal, sem garantia de funcionamento nem de continuidade, questões e gabaritos podem ter erros, o progresso fica só no aparelho e pode se perder. O texto fica em `js/termos.js`; ao mudá-lo, aumente `VERSAO_TERMOS` para pedir novo aceite.
+
 ## Para quem for mexer no código
 
 Tudo está na raiz, sem etapa de build:
@@ -56,7 +60,7 @@ python3 -m http.server 8000     # depois abra http://localhost:8000
 ```
 
 ### Testes
-- **Motor (no navegador):** com o servidor local ligado, abra `http://localhost:8000/tests/`. O título da aba mostra `OK 11/11`.
+- **Motor (no navegador):** com o servidor local ligado, abra `http://localhost:8000/tests/`. O título da aba mostra `OK 12/12`.
 - **Ponta a ponta (opcional):** `pip install playwright` e `python3 tests/e2e.py http://localhost:8000/` (precisa do Chrome; use a variável `CHROME` se ele não estiver em `/usr/bin/google-chrome`). Joga rodadas inteiras em um iPhone e em um Android emulados, confere troféu, treino das erradas, persistência, backup e modo offline.
 
 ### Mudar ou acrescentar questões
